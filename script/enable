@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# If dir doesn't exists, create and restart
+if [ ! -d "../build" ]; then
+  mkdir "../build"
+  ./enable
+else
+  cd "../build" || exit
+  cmake ../src && make
+fi
