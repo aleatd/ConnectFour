@@ -3,7 +3,11 @@
 # If dir doesn't exists, create and restart
 if [ ! -d "../build" ]; then
   mkdir "../build"
-  ./enable
+
+  # Rerun itself
+  exec "$0"
+
+# Else compile project
 else
   cd "../build" || exit
   cmake ../src && make

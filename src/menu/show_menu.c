@@ -1,4 +1,4 @@
-#include "vMain.h"
+#include "show_menu.h"
 
 /* Disegna i bordi */
 void dEdges(WINDOW* menu) {
@@ -77,13 +77,14 @@ void uSelectedOption(WINDOW* menu, const int highlight, char* choices[], const i
 /* Stampa il Logo */
 void pLogo(WINDOW* menu) {
     const char* logo[] = {
-        " _______  _______  ______    _______  _______    __   __ ",
-        "|       ||       ||    _ |  |       ||   _   |  |  | |  |",
-        "|    ___||   _   ||   | ||  |____   ||  |_|  |  |  |_|  |",
-        "|   |___ |  | |  ||   |_||_  ____|  ||       |  |       |",
-        "|    ___||  |_|  ||    __  || ______||       |  |       |",
-        "|   |    |       ||   |  | || |_____ |   _   |   |     | ",
-        "|___|    |_______||___|  |_||_______||__| |__|    |___|  ",
+        "    __   ___   ____   ____     ___    __ ______  ____  __ __ ",
+        "   /  ] /   \\ |    \\ |    \\   /  _]  /  ]      ||    ||  |  |",
+        "  /  / |     ||  _  ||  _  | /  [_  /  /|      | |  | |  |  |",
+        " /  /  |  O  ||  |  ||  |  ||    _]/  / |_|  |_| |  | |  |  |",
+        "/   \\_ |     ||  |  ||  |  ||   [_/   \\_  |  |   |  | |  :  |",
+        "\\     ||     ||  |  ||  |  ||     \\     | |  |   |  |  \\   / ",
+        " \\____| \\___/ |__|__||__|__||_____|\\____| |__|  |____|  \\_/  ",
+        "                                                             "
     };
 
     const char* credit = "Creato da Alessio Attilio";
@@ -114,14 +115,18 @@ void pLogo(WINDOW* menu) {
 
 /* Esce dal Programma */
 void eProgram() {
-    clear(); endwin(); exit(EXIT_SUCCESS);
+    clear();
+
+    endwin();
+
+    exit(EXIT_SUCCESS);
 }
 
 /* Inizializza Menu */
 int iMenu(void) {
     int highlight = 0, selected = 0;
     char* choices[] = { "Gioca", "Istruzioni", "Esci" };
-    constexpr int nC = sizeof(choices) / sizeof(char*);
+    const int nC = sizeof(choices) / sizeof(char*);
 
     initscr(); cbreak(); noecho(); curs_set(0); start_color();
 

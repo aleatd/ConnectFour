@@ -1,5 +1,6 @@
-#include "vWin.h"
+#include "show_state.h"
 
+/* Centra il testo */
 void sCText(WINDOW *win, const char *text[], const int lines) {
     /* Massimo di x, y */
     int mY, mX;
@@ -13,6 +14,7 @@ void sCText(WINDOW *win, const char *text[], const int lines) {
     wrefresh(win);
 }
 
+/* Visualizza 'hai vinto' */
 void sWPage() {
     clear();
     refresh();
@@ -27,17 +29,18 @@ void sWPage() {
         "                                          "
     };
 
-    int startY = (LINES - 7) / 2;
-    int startX = (COLS - 42) / 2;
+    const int startY = (LINES - 7) / 2;
+    const int startX = (COLS - 42) / 2;
 
     for (int i = 0; i < 7; i++) {
         mvprintw(startY + i, startX, "%s", message[i]);
     }
 
     refresh();
-    getch();  // Attende input per uscire dalla schermata
+    getch();
 }
 
+/* Visualizza 'hai perso' */
 void sLPage() {
     clear();
     refresh();
@@ -52,13 +55,13 @@ void sLPage() {
         "                                          "
     };
 
-    int startY = (LINES - 7) / 2;
-    int startX = (COLS - 42) / 2;
+    const int startY = (LINES - 7) / 2;
+    const int startX = (COLS - 42) / 2;
 
     for (int i = 0; i < 7; i++) {
         mvprintw(startY + i, startX, "%s", message[i]);
     }
 
     refresh();
-    getch();  // Attende input per uscire dalla schermata
+    getch();
 }

@@ -1,4 +1,4 @@
-#include "vInstructions.h"
+#include "view_instructions.h"
 
 /* Visualizza le istruzioni */
 void sInstructions(WINDOW *window) {
@@ -37,11 +37,11 @@ void sInstructions(WINDOW *window) {
     box(window, 0, 0);
 
     /* Calcola l'altezza e la larghezza del testo */
-    constexpr int tHeight = sizeof(instructions) / sizeof(instructions[0]);
+    const int tHeight = sizeof(instructions) / sizeof(instructions[0]);
 
     /* Posiziona il testo centrato */
     for (int i = 0; i < tHeight; ++i) {
-        constexpr int padding = 1;
+        const int padding = 1;
         const int sX = (int)(width - strlen(instructions[i])) / 2;
 
         // Lascia un po' di spazio sopra per la cornice
